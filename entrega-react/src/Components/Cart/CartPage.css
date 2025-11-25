@@ -1,0 +1,7 @@
+.cart-list{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+.cart-item{display:flex;justify-content:space-between;align-items:center;padding:14px}
+.cart-item__info h3{margin:0;font-size:1.05rem}
+.cart-item__actions{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.qty-control{display:flex;align-items:center;gap:8px}
+.qty-box{min-width:44px;text-align:center;padding:.45rem;border-radius:8px;background:linear-gradient(180deg,#fff,#f3f4f6);border:1px solid rgba(0,0,0,0.04);font-weight:700}
+.row-actions button{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:.4rem .6rem;border-radius:8px}

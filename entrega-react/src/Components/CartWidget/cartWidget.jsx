@@ -1,5 +1,7 @@
 import React from "react";
 import './carrito.css'
+import { Link } from 'react-router-dom'
+import { useCart } from '../../context/CartContext'
 
 const Cart = (props) => (
   <svg
@@ -24,12 +26,16 @@ const Cart = (props) => (
   </svg>
 );
 
-const cartWidget = () => {
-  return (
-    <button className="cart-btn">
-      <Cart width={24} height={24} />
-    </button>
-  );
-};
+const CartWidget = () => {
+  const { getTotalCount } = useCart()
+  const count = getTotalCount()
 
-export default cartWidget;
+  return (
+    <Link to="/cart" className="cart-btn" aria-label="Ver carrito">
+      <Cart width={24} height={24} />
+      {count > 0 && <span className="cart-badge">{count}</span>}
+    </Link>
+  )
+}
+
+export default CartWidget;

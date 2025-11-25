@@ -13,7 +13,7 @@
 	max-width:var(--max-width);
 	margin:0 auto;
 	padding:0 1.25rem;
-	height:64px;
+	height:68px;
 	display:flex;
 	align-items:center;
 	justify-content:space-between;
@@ -21,8 +21,10 @@
 
 .site-header__logo{
 	margin:0;
-	font-size:1.1rem;
+	font-size:1.05rem;
 	color:var(--text);
+	font-weight:800;
+	letter-spacing:0.3px;
 }
 
 .site-header__nav{
@@ -33,11 +35,11 @@
 	display:flex;gap:0.75rem;list-style:none;margin:0;padding:0;
 }
 
-.site-nav__item{
-	padding:0.35rem 0.6rem;border-radius:8px;color:var(--text);transition:background-color 160ms ease,color 160ms ease;font-weight:600;
-}
 
-.site-nav__item:hover{background-color:rgba(15,23,33,0.03)}
+.site-nav__item{font-weight:600}
+.site-nav__item a{display:inline-block;padding:0.35rem 0.7rem;border-radius:8px;color:var(--text);transition:background-color 160ms ease,color 160ms ease}
+.site-nav__item a:hover{background-color:rgba(15,23,33,0.03)}
+.site-nav__item a.active{background:linear-gradient(90deg,var(--accent-600),var(--accent));color:#fff;box-shadow:0 8px 22px rgba(15,23,42,0.06)}
 
 .site-header :where(.cart-btn){margin-left:0.5rem}
 

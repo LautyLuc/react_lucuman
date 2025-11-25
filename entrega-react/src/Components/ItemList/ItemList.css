@@ -1,0 +1,15 @@
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 18px 0;
+  align-items:start;
+}
+
+.item-list p{margin:0}
+
+/* Alternate card background to create subtle rhythm in the grid */
+.item-card:nth-child(odd){background:var(--card)}
+.item-card:nth-child(even){background:var(--card-alt)}
+.item-card{border:1px solid rgba(15,23,42,0.04)}
+

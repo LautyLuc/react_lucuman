@@ -23,6 +23,7 @@
 	cursor: pointer;
 	color: var(--text);
 	transition: background-color 150ms ease, transform 120ms ease;
+	position: relative;
 }
 
 .cart-btn:hover {
@@ -31,4 +32,18 @@
 }
 
 .cart-btn svg { display:block }
+
+.cart-badge{
+	position: absolute;
+	top: -6px;
+	right: -6px;
+	background: var(--accent-600);
+	color: #fff;
+	min-width:18px;
+	height:18px;
+	padding:0 6px;
+	border-radius:999px;
+	font-size:12px;
+	display:flex;align-items:center;justify-content:center;font-weight:700
+}
 

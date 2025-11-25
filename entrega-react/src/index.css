@@ -5,15 +5,16 @@
 */
 
 :root{
-	/* Light limestone theme */
-	--bg: #efefef; /* overall page background (light limestone) */
-	--bg-gradient-end: #f7f7f8;
-	--bg-header: #f5f5f6; /* header background */
-	--card: #ffffff; /* card background */
-	--muted: #6b7280; /* subdued text */
-	--text: #1f2933; /* dark text for good contrast */
-	--accent: #4f46e5; /* primary accent (indigo) */
-	--accent-600: #4338ca;
+	/* Paleta: fondo gris neutro y elementos destacados en blanco */
+	--bg: #e9ecef; /* fondo general: gris suave */
+	--bg-gradient-end: #e7eaed; /* degradado sutil similar */
+	--bg-header: #e2e5e8; /* header ligeramente diferente al fondo */
+	--card: #ffffff; /* tarjetas y botones destacados: blanco puro */
+	--muted: #6b6b6b; /* texto atenuado */
+	--text: #0f1724; /* texto principal (oscuro) */
+	--accent: #374151; /* color de acento para textos y bordes */
+	--accent-600: #1f2937;
+	--card-alt: #f6f8fb; /* alternativa para tarjetas del catálogo */
 	--success: #16a34a;
 	--radius: 10px;
 	--max-width: 1200px;
@@ -46,14 +47,14 @@ button{font-family:inherit}
 
 /* Simple header spacing for the main app if needed */
 .page{
-	padding-top: 1.25rem;
-	padding-bottom: 2.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
 }
 
 /* Headings */
-h1,h2,h3{margin:0 0 0.5rem 0;font-weight:600}
-h1{font-size:2.25rem}
-h2{font-size:1.2rem}
+h1,h2,h3{margin:0 0 0.5rem 0;font-weight:700}
+h1{font-size:2.05rem;letter-spacing:-0.4px}
+h2{font-size:1.15rem}
 
 /* Links */
 a{color:var(--accent);text-decoration:none}
@@ -62,21 +63,28 @@ a:hover{color:var(--accent-600)}
 /* Buttons */
 .btn{
 	display:inline-flex;align-items:center;gap:.5rem;
-	padding:.5rem .9rem;border-radius:calc(var(--radius) - 2px);
+	padding:.6rem 1rem;border-radius:calc(var(--radius) - 2px);
 	border:1px solid transparent;background:transparent;color:var(--text);
-	cursor:pointer;transition:all 150ms ease;font-weight:600;
+	cursor:pointer;transition:all 180ms ease;font-weight:700;letter-spacing:.2px
 }
 .btn:active{transform:translateY(1px)}
-.btn--primary{background:linear-gradient(90deg,var(--accent),var(--accent-600));border-color:transparent;color:#fff}
-.btn--ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+.btn--primary{background:var(--accent);border:1px solid rgba(15,23,42,0.06);color:#fff;box-shadow:0 10px 30px rgba(15,23,42,0.06)}
+.btn--primary:hover{opacity:0.95}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+.btn--ghost{background:transparent;border:1px solid rgba(0,0,0,0.06)}
 
 /* Cards */
 .card{
 	background:var(--card);
 	padding:1rem;
-	border-radius:var(--radius);
-	box-shadow:0 8px 20px rgba(2,6,23,0.6);
+	border-radius:calc(var(--radius) - 2px);
+	box-shadow:0 10px 30px rgba(15,23,42,0.06);
+	border:1px solid rgba(15,23,42,0.03);
 }
+
+/* app root layout full-height */
+.app-root{min-height:100vh;display:flex;flex-direction:column}
+.app-container{flex:1}
 
 /* Utilities */
 .flex{display:flex}
