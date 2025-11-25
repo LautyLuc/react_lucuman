@@ -4,7 +4,6 @@ import './ItemListC.css'
 import ItemList from '../ItemList/ItemList.jsx'
 import { useParams } from 'react-router-dom'
 import { getProducts } from '../../products'
-import { toast } from 'react-toastify'
 
 const ItemListContainer = ({ texto }) => {
   const { categoryId } = useParams()
@@ -20,9 +19,8 @@ const ItemListContainer = ({ texto }) => {
         } else {
           setItems(all)
         }
-        toast.dismiss()
       })
-      .catch(() => toast.error('Error cargando productos'))
+      .catch(() => console.error('Error cargando productos'))
       .finally(() => setLoading(false))
   }, [categoryId])
 

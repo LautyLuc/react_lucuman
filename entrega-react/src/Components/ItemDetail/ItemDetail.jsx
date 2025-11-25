@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import './ItemDetail.css'
 import { useCart } from '../../context/CartContext'
-import { toast } from 'react-toastify'
 
 const ItemDetail = ({ product }) => {
   const [qty, setQty] = useState(1)
@@ -32,7 +31,7 @@ const ItemDetail = ({ product }) => {
               <input value={qty} readOnly aria-label="Cantidad" />
               <button className="btn btn--primary" onClick={add} aria-label="Aumentar">+</button>
             </div>
-            <button className="btn btn--primary" onClick={() => { addItem(product, qty); toast.success(`${qty} × ${product.title} agregado`); }}>Agregar al carrito</button>
+            <button className="btn btn--primary" onClick={() => { addItem(product, qty); }}>Agregar al carrito</button>
           </div>
         </div>
       </div>

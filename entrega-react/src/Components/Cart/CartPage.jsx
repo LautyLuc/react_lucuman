@@ -1,7 +1,6 @@
 import React from 'react'
 import { useCart } from '../../context/CartContext'
 import './CartPage.css'
-import { toast } from 'react-toastify'
 
 const CartPage = () => {
   const { cart, addItem, removeOne, removeAllOf, clearCart, getTotalPrice } = useCart()
@@ -32,8 +31,8 @@ const CartPage = () => {
                 <button className="btn btn--primary" onClick={() => addItem(item, 1)} aria-label="Aumentar">+</button>
               </div>
 
-              <div className="row-actions">
-                <button className="btn" onClick={() => { removeAllOf(item.id); toast.info(`${item.title} eliminado`); }}>Eliminar</button>
+                <div className="row-actions">
+                <button className="btn" onClick={() => { removeAllOf(item.id); }}>Eliminar</button>
               </div>
             </div>
           </div>
@@ -41,7 +40,7 @@ const CartPage = () => {
       </section>
 
       <div style={{ marginTop: 18, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <button className="btn" onClick={() => { clearCart(); toast.info('Carrito vaciado') }}>Vaciar carrito</button>
+  <button className="btn" onClick={() => { clearCart(); }}>Vaciar carrito</button>
         <div>
           <strong>Total: </strong> ${getTotalPrice()}
         </div>

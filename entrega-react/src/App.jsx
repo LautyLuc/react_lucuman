@@ -6,8 +6,6 @@ import CartPage from './Components/Cart/CartPage.jsx'
 import Footer from './Components/Footer/Footer.jsx'
 import { Routes, Route } from 'react-router-dom'
 import React from 'react'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 function NotFound() {
   return (
@@ -25,7 +23,7 @@ function App() {
 
       <main className="app-container page" role="main">
         <Routes>
-          <Route path="/" element={<ItemListContainer texto="Catálogo - Lucuman" />} />
+          <Route path="/" element={<ItemListContainer texto="Catalogo" />} />
           <Route path="/category/:categoryId" element={<ItemListContainer texto="Catálogo por categoría" />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartPage />} />
@@ -33,9 +31,7 @@ function App() {
         </Routes>
       </main>
 
-      <Footer />
-
-      <ToastContainer position="top-right" autoClose={2000} hideProgressBar={false} newestOnTop closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
+  <Footer />
     </div>
   )
 }
