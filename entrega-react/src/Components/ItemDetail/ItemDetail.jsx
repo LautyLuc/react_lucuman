@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './ItemDetail.css'
 import { useCart } from '../../context/CartContext'
+import ItemCount from '../ItemCount/ItemCount'
+import { productImageUrl } from '../../services/imageService'
+import { IndicadorDisponibilidad } from '../Item/Item'
 
 const ItemDetail = ({ product }) => {
-  const [qty, setQty] = useState(1)
   const { addItem } = useCart()
+  const placeholder = productImageUrl(product, 640, 640)
+  const [addedQty, setAddedQty] = React.useState(0)
 
-  const add = () => setQty(q => Math.min(99, q + 1))
-  const sub = () => setQty(q => Math.max(1, q - 1))
-
-  // Placeholder image using placeholder.com, con texto del producto (espacios reemplazados por +)
-  const placeholder = `https://picsum.photos/seed/detail-${product.id}/640/640`
+  const handleAdd = (qty) => {
+    addItem(product, qty)
+    setAddedQty(qty)
+  }
 
   return (
     <article className="item-detail card">
@@ -24,14 +27,23 @@ const ItemDetail = ({ product }) => {
           <p className="muted">{product.category}</p>
           <p className="item-desc">{product.description}</p>
           <p className="detail-price">${product.price}</p>
+          <p className="muted">Stock disponible: <strong>{product.stock}</strong></p>
+          <p><IndicadorDisponibilidad stock={product.stock} /></p>
 
-            <div className="item-detail__actions">
-            <div className="qty-control">
-              <button className="btn" onClick={sub} aria-label="Disminuir">-</button>
-              <input value={qty} readOnly aria-label="Cantidad" />
-              <button className="btn btn--primary" onClick={add} aria-label="Aumentar">+</button>
-            </div>
-            <button className="btn btn--primary" onClick={() => { addItem(product, qty); }}>Agregar al carrito</button>
+          <div className="item-detail__actions">
+            {addedQty > 0 ? (
+              <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+                <div>Se agregaron <strong>{addedQty}</strong> unidad(es).</div>
+                <a href="/cart" className="btn">Ir al carrito</a>
+                <a href="/" className="btn">Seguir comprando</a>
+              </div>
+            ) : (
+              product.stock > 0 ? (
+                <ItemCount stock={product.stock ?? 99} initial={1} onAdd={handleAdd} />
+              ) : (
+                <button className="btn" disabled>Agotado</button>
+              )
+            )}
           </div>
         </div>
       </div>

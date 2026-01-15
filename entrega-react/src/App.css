@@ -1,42 +1,101 @@
+/* App root layout */
+.app-root {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: linear-gradient(135deg, var(--bg) 0%, var(--bg-gradient-end) 100%);
+}
+
 #root {
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+main {
+	flex: 1;
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 2rem 1.25rem;
+	box-sizing: border-box;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Page transitions */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+main {
+	animation: fadeIn 300ms ease-out;
 }
 
-.card {
-  padding: 2em;
+/* Empty state */
+.empty-state {
+	text-align: center;
+	padding: 4rem 2rem;
+	color: var(--muted);
 }
 
-.read-the-docs {
-  color: #888;
+.empty-state h2 {
+	color: var(--text);
+	margin-bottom: 1rem;
+}
+
+.empty-state p {
+	margin-bottom: 2rem;
+	font-size: 1.0625rem;
+}
+
+/* Loading state */
+.loading {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 3rem 1rem;
+	color: var(--muted);
+	font-size: 1.0625rem;
+}
+
+/* Error state */
+.error-box {
+	background: var(--error-light);
+	border-left: 4px solid var(--error);
+	color: var(--error);
+	padding: 1.5rem;
+	border-radius: var(--radius);
+	margin: 1rem 0;
+	font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+	main {
+		padding: 1.5rem 1rem;
+	}
+
+	.empty-state {
+		padding: 3rem 1rem;
+	}
+}
+
+@media (max-width: 480px) {
+	main {
+		padding: 1rem;
+	}
+
+	.empty-state {
+		padding: 2rem 1rem;
+	}
+
+	.empty-state h2 {
+		font-size: 1.5rem;
+	}
 }

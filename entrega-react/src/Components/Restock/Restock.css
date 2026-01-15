@@ -1,0 +1,166 @@
+/* Restock - Product restock management */
+.restock-container {
+	max-width: 1200px;
+	margin: 2rem auto;
+	padding: 2rem 1.25rem;
+}
+
+.restock-title {
+	margin: 0 0 2rem 0;
+	font-size: 2rem;
+	color: var(--text);
+	font-weight: 700;
+}
+
+.restock-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.restock-card {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	background: var(--card);
+	padding: 1.5rem;
+	border-radius: var(--radius);
+	border: 1px solid var(--border);
+	box-shadow: var(--shadow-sm);
+	transition: all 200ms ease;
+}
+
+.restock-card:hover {
+	box-shadow: var(--shadow-md);
+	transform: translateY(-4px);
+	border-color: var(--accent-light);
+}
+
+.restock-card h3 {
+	margin: 0 0 0.5rem 0;
+	font-size: 1.0625rem;
+	color: var(--text);
+}
+
+.restock-card p {
+	margin: 0.25rem 0;
+	font-size: 0.9rem;
+	color: var(--muted);
+}
+
+.restock-price {
+	font-size: 1.25rem;
+	font-weight: 700;
+	color: var(--accent);
+}
+
+.restock-form {
+	display: flex;
+	gap: 0.75rem;
+	align-items: flex-end;
+	margin-top: 1rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--border);
+}
+
+.restock-form input {
+	flex: 1;
+	min-width: 60px;
+	padding: 0.5rem 0.75rem;
+	border-radius: var(--radius);
+	border: 1px solid var(--border);
+	background: var(--card-hover);
+	color: var(--text);
+	font-weight: 500;
+	text-align: center;
+	transition: all 200ms ease;
+}
+
+.restock-form input:focus {
+	outline: none;
+	border-color: var(--accent);
+	box-shadow: 0 0 0 3px var(--accent-light);
+	background: var(--card);
+}
+
+.restock-form button {
+	padding: 0.5rem 1rem;
+	border-radius: var(--radius);
+	border: none;
+	background: var(--accent);
+	color: white;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 200ms ease;
+	font-size: 0.875rem;
+	white-space: nowrap;
+}
+
+.restock-form button:hover {
+	background: var(--accent-dark);
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-sm);
+}
+
+.restock-form button:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+.stock-status {
+	padding: 0.75rem;
+	border-radius: var(--radius);
+	background: var(--success-light);
+	color: var(--success);
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-align: center;
+}
+
+.stock-status.low {
+	background: rgba(245, 158, 11, 0.1);
+	color: var(--warning);
+}
+
+.stock-status.out {
+	background: var(--error-light);
+	color: var(--error);
+}
+
+.restock-empty {
+	text-align: center;
+	padding: 3rem 1rem;
+	color: var(--muted);
+	font-size: 1.0625rem;
+}
+
+@media (max-width: 768px) {
+	.restock-container {
+		padding: 1.5rem 1rem;
+	}
+
+	.restock-title {
+		font-size: 1.5rem;
+	}
+
+	.restock-grid {
+		grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+		gap: 1rem;
+	}
+
+	.restock-form {
+		flex-direction: column;
+	}
+
+	.restock-form button {
+		width: 100%;
+	}
+}
+
+@media (max-width: 480px) {
+	.restock-grid {
+		grid-template-columns: 1fr;
+	}
+}
